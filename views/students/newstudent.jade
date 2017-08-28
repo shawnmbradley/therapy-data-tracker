@@ -1,0 +1,71 @@
+extends ../layout
+
+block content
+    div.ui.container
+        br
+        h1 Add Student
+        p complete the form below and click save
+        hr
+        br
+        form.ui.form.addstudent(name="addstudnet",method="post",action="/students/addstudent")
+            h4.ui.dividing.header Personal Info
+            div.required.field
+                label NAME
+                div.two.fields
+                    div.field
+                        input.firstname(name="firstname", placeholder="First Name", type="text")
+                    div.field
+                        input.lastname(name="lastname", placeholder="Last Name" type="text")
+            div.required.field
+                label DATE OF BIRTH
+                div.three.fields
+                    div.field
+                        input.dob_m(name="dob_month", type="text", placeholder="Janurary")
+                    div.field
+                        input.dob_d(name="dob_d", placeholder="Day", type="text")
+                    div.field
+                        input.dob_y(name="dob_y", placeholder="Year", type="text")
+            h4.ui.dividing.header District Info
+            div.field
+                div.two.fields
+                    div.field
+                        label STUDENT ID
+                        input.studentid(name="studentid", placeholder="Student ID" type="text")
+                    .field
+                        label GRADE LEVEL
+                        input.grade(name="grade", type="text")
+                div.two.fields
+                    div.field
+                        label TEACHER
+                        input.teacher#inputTeacher(name="teacher", placeholder="Teacher" type="text")
+                    div.field
+                        label CAMPUS
+                        input.campus(name="campus", placeholder="Campus", type="text")                        
+            h4.ui.dividing.header Important Dates
+            div.field
+                div.three.fields
+                    div.field
+                        label CURRENT ARD
+                        input.current_ard(name="curent_ard", type="date")
+                    div.field
+                        label SCHEDULED ARD
+                        input.scheduled_ard(name="scheduled_ard", type="date")
+                    div.field
+                        label FIE DATE
+                        input.fie_date(name="fie_date", type="date")
+            h4.ui.dividing.header Other Details
+            div.field
+                label SLP Services
+                textarea(name="slp_services")
+            div.field
+                label Disibilities
+                textarea(name="disibilities")
+            div.field
+                input.save.ui.right.floated.primary.button(type="submit", value="Save" name="submit")
+            br
+            br
+            br
+
+
+                
+            

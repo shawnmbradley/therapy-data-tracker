@@ -1,0 +1,27 @@
+script(src="/javascripts/students.js")
+div.ui.modal.add-goal
+    div.header Add Goal
+    
+    div.content
+        div.discription.result
+        form.ui.form.form-add-goal(name="addgoal",method="post",action="/students/addgoal/#{student[0]._id}")
+            div.field
+                label Goal
+                textarea(name="goal")
+            div.field
+                label Color
+                select.ui.dropdown.search(name="goal_color")
+                    option(value="red") Red
+                    option(value="organge") Organge
+                    option(value="green") Green
+                    option(value="blue") Blue
+                    option(value="purple") Purple
+                    option(value="pink") Pink
+            div.field
+                label Data Messurement Type
+                select.ui.dropdown.search(name="goal_messurement_type")
+                    each goaltype, i in goaltypes
+                        option(value="#{goaltype._id}")= goaltype.name                             
+    div.actions
+        div.ui.button.add-goal-cancel Cancel
+        div.ui.button.primary.add-goal-save Save

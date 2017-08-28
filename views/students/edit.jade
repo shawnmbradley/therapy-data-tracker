@@ -1,0 +1,112 @@
+extends ../layout
+
+script(src="/javascripts/students.js")
+
+block content
+    div.ui.container
+        br
+        h2.ui.header= student[0].firstname + ' ' + student[0].lastname
+        h3.ui.header= "Servicers"
+        div.ui.horizontal.list
+            div.item
+                img.ui.mini.circular.image(src="/images/avatar2/small/molly.png")
+                div.content
+                    div.ui.subheader= "Dalan Gore"
+                    span= "Speach Services"
+            div.item
+                img.ui.mini.circular.image(src="/images/avatar2/small/elyse.png")
+                div.content
+                    div.ui.subheader= "Shawn Bradley"
+                    span= "Speach Services"
+            div.item
+                img.ui.mini.circular.image(src="/images/avatar2/small/eve.png")
+                div.content
+                    div.ui.subheader= "Lisa Gore"
+                    span= "Speach Services"                                        
+                    
+        div.ui.top.attached.pointing.menu
+            a.active.item(data-tab="details") Details
+            a.item(data-tab="goals") Goals
+            a.item(data-tab="data") Data
+            a.item(data-tab="files") Files
+        div.ui.bottom.attached.active.tab.segment(data-tab="details")
+        
+            form.ui.form.addstudent(name="addstudnet",method="post",action="/students/updatestudent/#{student[0]._id}")
+                h4.ui.dividing.header Personal Info
+                div.required.field
+                    label NAME
+                    div.two.fields
+                        div.field
+                            input.firstname(name="firstname", placeholder="First Name", type="text" value="#{student[0].firstname}")
+                        div.field
+                            input.lastname(name="lastname", placeholder="Last Name" type="text" value="#{student[0].lastname}")
+                div.required.field
+                    label DATE OF BIRTH
+                    div.three.fields
+                        div.field
+                            input.dob_d(name="dob_m", placeholder="Month", type="text", value="#{student[0].dob_m}")
+                        div.field
+                            input.dob_d(name="dob_d", placeholder="Day", type="text", value="#{student[0].dob_d}")
+                        div.field
+                            input.dob_y(name="dob_y", placeholder="Year", type="text", value="#{student[0].dob_y}")
+                h4.ui.dividing.header District Info
+                div.field
+                    div.three.fields
+                        div.field
+                            label STUDENT ID
+                            input.studentid(name="studentid", placeholder="Student ID" type="text", value="#{student[0].studentid}")
+                        div.field
+                            label TEACHER
+                            input.teacher#inputTeacher(name="teacher", placeholder="Teacher" type="text", value="#{student[0].teacher}")
+                        div.field
+                            label CAMPUS
+                            input.campus(name="campus", placeholder="Campus", type="text", value="#{student[0].campus}")                        
+                h4.ui.dividing.header Important Dates
+                div.field
+                    div.three.fields
+                        div.field
+                            label CURRENT ARD
+                            input.current_ard(name="current_ard", type="date", value="#{student[0].current_ard}")
+                        div.field
+                            label SCHEDULED ARD
+                            input.scheduled_ard(name="scheduled_ard", type="date", value="#{student[0].scheduled_ard}")
+                        div.field
+                            label FIE DATE
+                            input.fie_date(name="fie_date", type="date", value="#{student[0].fie_date}")
+                h4.ui.dividing.header Other Details
+                div.field
+                    label SLP Services
+                    textarea(name="slp_services")= student[0].slp_services
+                div.field
+                    label Disibilities
+                    textarea(name="disibilities")= student[0].disibilities
+                div.row
+                div.field
+                    input.save.ui.primary.button(type="submit", value="Save" name="submit")        
+
+        div.ui.bottom.attached.tab.segment(data-tab="goals")
+            button.ui.button.primary.add-goal New Goal
+            include ./goals
+            include ./newgoal
+
+        div.ui.bottom.attached.tab.segment(data-tab="data")
+            div.ui.cards
+                each goal, i in goals
+                    div.card
+                        div.content
+                            div.meta= goal.goal_messurement_type[0].name
+                            div.description= goal.goal
+                        div.extra.content
+                            div.ui.basic.green.button
+
+        div.ui.bottom.attached.tab.segment(data-tab="files")  
+
+    br
+    br
+
+
+
+
+
+                
+            

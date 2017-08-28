@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
+    title= title
+    link(rel='stylesheet', type="text/css" href='/semantic/public/semantic/dist/semantic.min.css')
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous")
+    script(src="/semantic/public/semantic/dist/semantic.min.js")
+    script(src="/javascripts/app.js")
+  body
+
+block content
+    div.ui.container
+      br
+      br
+      h1.ui.header Please Login
+      form.ui.form(method="post", action="/auth/login")
+        div.field
+          input(name="username", placeholder="username")
+        div.field
+          input(type="password", name="password", placeholder="password")
+        div.field
+          input.ui.button.primary(type="submit", value="Login")

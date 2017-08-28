@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
+    title= title
+    link(rel='stylesheet', type="text/css" href='/semantic/public/semantic/dist/semantic.min.css')
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous")
+    script(src="/semantic/public/semantic/dist/semantic.min.js")
+    script(src="/javascripts/app.js")
+  body
+    div.ui.container
+      div.ui.top.fixed.menu
+        div.ui.container
+          div.item 
+            h1 
+              i.area.chart.icon</i> DT
+          a.item(href="/")
+            i.home.icon</i> Home
+          a.item(href="/students/studentlist")
+            i.user.icon</i> Students
+          a.item(href="/students/studentlist")
+            i.users.icon</i> Groups  
+          a.item(href="/takedata/single")
+            i.hand.pointer.icon</i> Take Data                  
+      br
+      br
+      block content
