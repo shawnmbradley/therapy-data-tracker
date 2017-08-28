@@ -29,3 +29,7 @@ $(".button.add-goal").click( function() {
 
 });
 
+$(".select-student").change( function() {
+    alert('asdf')
+})
+

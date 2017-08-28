@@ -33,8 +33,8 @@ router.get('/edit/:id', function(req, res) {
 
     var db = req.db;
     var students = db.get('studentscollection');
-    var goaltypes = db.get('goalmesurementtypes');
-    var goaltype = db.get('goalmesurementtypes');
+    var goaltypes = db.get('student_goal_messurement_types');
+    var goaltype = db.get('student_goal_messurement_types');
     var goals = db.get('student_goals');
     var ObjectId = require('mongodb').ObjectID
     var id = req.params.id;
@@ -84,9 +84,7 @@ router.post('/updatestudent/:id', function(req, res) {
     var studentid = req.body.studentid;
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
-    var dob_m = req.body.dob_m;
-    var dob_d = req.body.dob_d;
-    var dob_y = req.body.dob_y;
+    var dob = req.body.dob;
     var grade = req.body.grade;
     var current_ard = req.body.current_ard;
     var scheduled_ard = req.body.scheduled_ard;
@@ -114,9 +112,7 @@ router.post('/updatestudent/:id', function(req, res) {
         "campus"    : campus,
         "firstname" : firstname,
         "lastname" : lastname,
-        "dob_m"       : dob_m,
-        "dob_d"     : dob_d,
-        "dob_y"     : dob_y,
+        "dob"       : dob,
         "grade"     : grade,
         "current_ard" : current_ard,
         "scheduled_ard" : scheduled_ard,
@@ -169,9 +165,7 @@ router.post('/addstudent', function(req, res) {
     var studentid = req.body.studentid;
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
-    var dob_m = req.body.dob_m;
-    var dob_d = req.body.dob_d;
-    var dob_y = req.body.dob_y;
+    var dob = req.body.dob;
     var grade = req.body.grade;
     var current_ard = req.body.current_ard;
     var scheduled_ard = req.body.scheduled_ard;
@@ -191,9 +185,7 @@ router.post('/addstudent', function(req, res) {
         "campus"    : campus,
         "firstname" : firstname,
         "lastname" : lastname,
-        "dob_m"       : dob_m,
-        "dob_d"     : dob_d,
-        "dob_y"     : dob_y,
+        "dob"       : dob,
         "grade"     : grade,
         "current_ard" : current_ard,
         "scheduled_ard" : scheduled_ard,

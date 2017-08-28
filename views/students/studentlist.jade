@@ -1,35 +1,34 @@
 extends ../layout
 
 block content
-    div.ui.grid.container
-        div.ui.grid
-            div.sixteen.wide.column
-                br
-                h1= title
-            div.sixteen.wide.column
-                table.ui.striped.table.small.full-width.celled
-                    thead
-                        tr
-                            th Student ID
-                            th Name
-                            th Teacher
-                            th Grade
-                            th Current ARD
-                            th Scheduled ARD
-                            th FIE Date
-                    tbody
-                        each student, i in studentlist
-                            tr
-                                td= student.studentid
-                                td
-                                    a(href="edit/#{student._id}")= student.firstname + ' ' + student.lastname
-                                td= student.teacher
-                                td= student.grade
-                                td= student.current_ard
-                                td= student.scheduled_ard
-                                td= student.fie_date
-                    tfoot.full-width
-                        tr
-                            th(colspan="7")
-                                a(href="newstudent").ui.right.floated.small.primary.lablen.icon.button
-                                    i.user.icon</i> Add Student
+    div.container
+        div.sixteen.wide.column
+            br
+            h1= title
+        
+        table.ui.striped.table.small.full-width.celled
+            thead
+                tr
+                    th Student ID
+                    th Name
+                    th Teacher
+                    th Grade
+                    th Current ARD
+                    th Scheduled ARD
+                    th FIE Date
+            tbody
+                each student, i in studentlist
+                    tr
+                        td= student.studentid
+                        td
+                            a(href="edit/#{student._id}")= student.firstname + ' ' + student.lastname
+                        td= student.teacher
+                        td= student.grade
+                        td= student.current_ard
+                        td= student.scheduled_ard
+                        td= student.fie_date
+            tfoot.full-width
+                tr
+                    th(colspan="7")
+                        a(href="newstudent").ui.right.floated.small.primary.lablen.icon.button
+                            i.user.icon</i> Add Student

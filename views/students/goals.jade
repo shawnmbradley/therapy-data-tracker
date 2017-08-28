@@ -3,7 +3,17 @@ table.ui.striped.table.small.full-width.celled
         each goal, i in goals
             div.card
                 div.content
-                    div.meta= goal.goal_messurement_type[0].name
-                    div.description= goal.goal
+                    div.meta.left.floated= goal.goal_messurement_type[0].name
+                    img.ui.avatar.image.right.floated(src="/images/#{goal.goal_color}.png")
+                    div.description
+                        p= goal.goal
                 div.extra.content
-                    div.ui.basic.green.button
+                    div.ui.two.buttons.animated
+                        div.ui.animated.button.basic.red
+                            div.hidden.content Delete
+                            div.visible.content
+                                i.trash.icon
+                        div.ui.animated.button.basic.green
+                            div.hidden.content Edit
+                            div.visible.content
+                                i.edit.icon                                

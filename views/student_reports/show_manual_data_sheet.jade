@@ -1,0 +1,67 @@
+extends ../layout
+block content
+    div.ui.button.primary.print-this Print
+    div.print-section
+        p= "School: " + student[0].campus
+        table.dt-report
+            tr.dt-report
+                td.dt-report
+                    p <strong>Name:</strong>
+                    p= student[0].firstname + " " + student[0].lastname
+                    
+                td.dt-report
+                    p <strong>ID#:</strong>
+                    p= student[0].studentid
+
+                td.dt-report
+                    p <strong>DOB:</strong>
+                    p= student[0].dob
+
+                td.dt-report
+                    p <strong>Grade:</strong>
+                    p= student[0].grade
+
+                td.dt-report
+                    p <strong>HC:</strong>
+                    p= student[0].teacher       
+
+                td.dt-report
+                    p <strong>SOS:</strong>
+                    p= student[0].teacher  
+
+                td.dt-report
+                    p <strong>ARD:</strong>
+                    p= student[0].teacher  
+
+                td.dt-report
+                    p <strong>3 year:</strong>
+                    p= student[0].teacher                                                                                           
+
+        p Goals:
+        table.dt-report
+            each goal, i in goals
+                tr.dt-report
+                    td.dt-report
+                        p= goal.goal
+        p Data:
+            table.dt-report
+                tr.dt-report
+                    td.dt-report(width="50") Date
+                    td.dt-report(width="50") G/I
+                    td.dt-report(width="75") Start Time
+                    td.dt-report(width="75") Stop Time
+                    td.dt-report(width="125") IEP Goal(s)
+                    td.dt-report(width="200") Activity
+                    td.dt-report Data
+                    td.dt-report(width="50") SLP
+                each i in new Array(10)
+                    tr.dt-report
+                        td.big.dt-report
+                        td.dt-report
+                        td.dt-report
+                        td.dt-report
+                        td.dt-report
+                        td.dt-report
+                        td.dt-report
+                        td.dt-report
+

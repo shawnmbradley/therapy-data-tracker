@@ -1,0 +1,12 @@
+extends ../../layout
+block content
+    br
+    br
+    div.ui.container
+        h2.ui.header= title
+        p Once you are finished, make sure you click save.
+        form.ui.form(method="post", action="/goals/update_student_goal_messurement_type/#{goaltype._id}")
+            div.field
+                input(type="text", name="name", value="#{goaltype.name}")
+            div.field
+                input.ui.button.primary.right.floated(type="submit", value="Save")

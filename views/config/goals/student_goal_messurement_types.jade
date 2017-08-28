@@ -1,0 +1,17 @@
+extends ../../layout
+block content
+    br
+    br
+    div.ui.container
+        h2.ui.header= title
+        p You can click a goal type to edit it.
+        table.ui.celled.table
+            thead
+                tr
+                    th Goal Messurement Type
+                        a.ui.button.positive.right.floated(href="/goals/new_student_goal_messurement_type") New
+                tbody
+                    each gmt, i in student_goal_messurement_types
+                        tr
+                            td
+                                a(href="/goals/edit_student_goal_messurement_type/#{gmt._id}")= gmt.name

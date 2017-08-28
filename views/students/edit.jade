@@ -31,27 +31,23 @@ block content
             a.item(data-tab="files") Files
         div.ui.bottom.attached.active.tab.segment(data-tab="details")
         
-            form.ui.form.addstudent(name="addstudnet",method="post",action="/students/updatestudent/#{student[0]._id}")
+            form.ui.form.addstudent(name="editstudent",method="post",action="/students/updatestudent/#{student[0]._id}")
                 h4.ui.dividing.header Personal Info
                 div.required.field
-                    label NAME
-                    div.two.fields
+                    
+                    div.three.fields
                         div.field
+                            label FIRST NAME
                             input.firstname(name="firstname", placeholder="First Name", type="text" value="#{student[0].firstname}")
                         div.field
+                            label LAST NAME
                             input.lastname(name="lastname", placeholder="Last Name" type="text" value="#{student[0].lastname}")
-                div.required.field
-                    label DATE OF BIRTH
-                    div.three.fields
                         div.field
-                            input.dob_d(name="dob_m", placeholder="Month", type="text", value="#{student[0].dob_m}")
-                        div.field
-                            input.dob_d(name="dob_d", placeholder="Day", type="text", value="#{student[0].dob_d}")
-                        div.field
-                            input.dob_y(name="dob_y", placeholder="Year", type="text", value="#{student[0].dob_y}")
+                            label DATE OF BIRTH
+                            input.dob(name="dob", placeholder="Date of Birth", type="date", value="#{student[0].dob}")
                 h4.ui.dividing.header District Info
                 div.field
-                    div.three.fields
+                    div.four.fields
                         div.field
                             label STUDENT ID
                             input.studentid(name="studentid", placeholder="Student ID" type="text", value="#{student[0].studentid}")
@@ -60,7 +56,10 @@ block content
                             input.teacher#inputTeacher(name="teacher", placeholder="Teacher" type="text", value="#{student[0].teacher}")
                         div.field
                             label CAMPUS
-                            input.campus(name="campus", placeholder="Campus", type="text", value="#{student[0].campus}")                        
+                            input.campus(name="campus", placeholder="Campus", type="text", value="#{student[0].campus}")      
+                        div.field
+                            label GRADE LEVEL
+                            input.campus(name="grade", placeholder="4th", type="text", value="#{student[0].grade}")                                                
                 h4.ui.dividing.header Important Dates
                 div.field
                     div.three.fields
@@ -85,9 +84,13 @@ block content
                     input.save.ui.primary.button(type="submit", value="Save" name="submit")        
 
         div.ui.bottom.attached.tab.segment(data-tab="goals")
-            button.ui.button.primary.add-goal New Goal
-            include ./goals
-            include ./newgoal
+            div.ui.row
+                button.ui.button.positive.add-goal New Goal
+                br
+                br
+            div.ui.row
+                include ./goals
+                include ./newgoal
 
         div.ui.bottom.attached.tab.segment(data-tab="data")
             div.ui.cards

@@ -4,12 +4,14 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
     title= title
     link(rel='stylesheet', type="text/css" href='/semantic/public/semantic/dist/semantic.min.css')
+    link(rel='stylesheet', type="text/css" href='/stylesheets/style.css')
     script(src="https://code.jquery.com/jquery-3.2.1.min.js"
 			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 			  crossorigin="anonymous")
     script(src="/semantic/public/semantic/dist/semantic.min.js")
+    script(src="/javascripts/printThis/printThis.js")
     script(src="/javascripts/app.js")
-  body
+  body.basic.minimal
     div.ui.container
       div.ui.top.fixed.menu
         div.ui.container
@@ -18,12 +20,38 @@ html
               i.area.chart.icon</i> DT
           a.item(href="/")
             i.home.icon</i> Home
-          a.item(href="/students/studentlist")
-            i.user.icon</i> Students
-          a.item(href="/students/studentlist")
-            i.users.icon</i> Groups  
+          div.ui.dropdown.item
+            i.address.book.icon</i> Students
+            div.menu
+              a.item(href="/students/studentlist")
+                i.id.card.icon</i> Student List
+              a.item(href="/students/newstudent")
+                i.add.user.icon</i> New Student   
+              a.item(href="/student_groups")
+                i.users.icon</i> Therapy Groups                         
           a.item(href="/takedata/single")
-            i.hand.pointer.icon</i> Take Data                  
+            i.hand.pointer.icon</i> Take Data
+          div.ui.dropdown.item
+            i.file.text.icon</i> Reports
+            div.menu
+              a.item(href="/users/userlist")
+                i.id.card.icon</i> Somthing!!!
+              div.item
+                i.dropdown.icon
+                i.id.card.icon</i> Student
+                div.menu
+                  a.item(href="/student_reports/manual_data_sheet") Manual Data Sheet          
+          div.ui.dropdown.item
+            i.wrench.icon</i> Configuration
+            div.menu
+              a.item(href="/users/userlist")
+                i.id.badge.icon</i> Users
+              div.item
+                i.dropdown.icon
+                i.check.icon</i> Goals
+                div.menu
+                  a.item(href="/goals/student_goal_messurement_types") Messurement Types
+                  a.item(href="/goals/student_goal_categories") Goal Categories
       br
       br
       block content

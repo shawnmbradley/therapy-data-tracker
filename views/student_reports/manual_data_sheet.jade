@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    br
+    h1.ui.header= title
+    p Select a student from the list below and click generate
+    hr
+
+    select.ui.fluid.dropdown.searchable.select-student
+        option(value="null") Please select a student
+        each student, i in students
+            option(value="#{student._id}")= student.firstname + " " + student.lastname
+    br
+    a.ui.basic.button.disabled.generate-report(href="#", target="_blank") Generate Report

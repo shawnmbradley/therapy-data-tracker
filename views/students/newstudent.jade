@@ -3,28 +3,26 @@ extends ../layout
 block content
     div.ui.container
         br
-        h1 Add Student
+        h2.ui.header Add Student
         p complete the form below and click save
         hr
         br
         form.ui.form.addstudent(name="addstudnet",method="post",action="/students/addstudent")
             h4.ui.dividing.header Personal Info
             div.required.field
-                label NAME
-                div.two.fields
-                    div.field
-                        input.firstname(name="firstname", placeholder="First Name", type="text")
-                    div.field
-                        input.lastname(name="lastname", placeholder="Last Name" type="text")
-            div.required.field
-                label DATE OF BIRTH
                 div.three.fields
+                    
                     div.field
-                        input.dob_m(name="dob_month", type="text", placeholder="Janurary")
+                        label FIRST NAME
+                        input.firstname(name="firstname", placeholder="First Name", type="text")
+                    
                     div.field
-                        input.dob_d(name="dob_d", placeholder="Day", type="text")
+                        label LAST NAME
+                        input.lastname(name="lastname", placeholder="Last Name" type="text")
+                    
                     div.field
-                        input.dob_y(name="dob_y", placeholder="Year", type="text")
+                        label DATE OF BIRTH
+                        input.dob(name="dob", placeholder="11/29/1985", type="date")
             h4.ui.dividing.header District Info
             div.field
                 div.two.fields
