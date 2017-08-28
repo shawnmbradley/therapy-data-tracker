@@ -12,6 +12,8 @@ router.get('/', function(req, res, next) {
 
 /* GET Userlist page. */
 router.get('/userlist', function(req, res) {
+
+  if (req.isAuthenticated()) {
     var db = req.db;
     var collection = db.get('usercollection');
     collection.find({},{},function(e,docs){
@@ -19,6 +21,14 @@ router.get('/userlist', function(req, res) {
             "userlist" : docs
         });
     });
+  }
+  else
+  {
+    req.session.error = 'Please sign in!';
+    res.redirect('/auth/signin');
+  }       
+
+
 });
 
 /* GET New User page. */
@@ -29,6 +39,7 @@ router.get('/newuser', function(req, res) {
 /* POST to Add User Service */
 router.post('/adduser', function(req, res) {
 
+  if (req.isAuthenticated()) {
     // Set our internal DB variable
     var db = req.db;
 
@@ -70,6 +81,14 @@ router.post('/adduser', function(req, res) {
                 });
             }
         })
+  }
+  else
+  {
+    req.session.error = 'Please sign in!';
+    res.redirect('/auth/signin');
+  }     
+
+
 
 
 });
